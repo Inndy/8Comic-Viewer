@@ -34,6 +34,10 @@
     // Create Navbar
     var navX, navY;
     document.body.innerHTML = Form1.innerHTML + "<nav id='nb'><span id='btDrag'>x</span><ul><li id='btPrev'><img src='http://knowlet.github.io/8Comic-Viewer/files/img/pv.png' alt='上一卷（話）' /></li><li id='btMenu'><img src='http://knowlet.github.io/8Comic-Viewer/files/img/mu.png' alt='全集列表' /></li><li id='btNext'><img src='http://knowlet.github.io/8Comic-Viewer/files/img/nv.png' alr='下一卷（話）' /></li><li id='Scroll'><img src='http://knowlet.github.io/8Comic-Viewer/files/img/sc.png' alr='自動捲頁' /></li></ul></nav>";
+    a = document.createElement("div");
+    a.setAttribute("id", "Menu");
+    a.innerHTML = "跳到第 <input onchange='j(this.value)'> 頁　　<button>Go</button><br><br><a href='http://www.8comic.com/html/" + ti.toString() + ".html'>↪點我回選單</a>";
+    nb.appendChild(a);
     parseInt(localStorage.navX) < document.body.clientWidth && parseInt(localStorage.navY) < document.body.clientHeight && parseInt(localStorage.navX) > 0 && parseInt(localStorage.navY) > 0 && (navX = localStorage.navX, navY = localStorage.navY) && (nb.style.left = navX, nb.style.top = navY);
     // Drag Events
     document.onmousemove = function(a) {
@@ -81,7 +85,7 @@
 
 j = function (n){
     var a = document.getElementsByTagName('table')[1];
-    smooth_scroll(document.body, a.getElementsByTagName('img')[n-1].offsetTop, 500);
+    n>0 && n<=Number(ps) ? smooth_scroll(document.body, a.getElementsByTagName('img')[n-1].offsetTop, 500) : alert("超過頁數範圍囉！");
 }
 
 var smooth_scroll = function(element, target, duration) {

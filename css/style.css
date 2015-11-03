@@ -63,3 +63,25 @@ nav span {
 #TheTable td {
 	max-width: 100px;
 }
+#Menu {
+	position: absolute;
+	top: 47.5px;
+	right: 40px;
+	width: 180px;
+	background: rgb(127, 92, 23);
+	color: white;
+	border-radius: 10px;
+	border: #FFB11B solid 4px;
+	padding: 15px;
+}
+#Menu input{
+	width: 40px;
+	text-align: center;
+}
+#Menu a{
+	color: antiquewhite;
+	font-size: 17px;
+}
+#Menu a:hover{
+	color: white;
+}
