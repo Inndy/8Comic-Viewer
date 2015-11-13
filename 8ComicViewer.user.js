@@ -36,6 +36,7 @@
     document.body.innerHTML = Form1.innerHTML + "<nav id='nb'><span id='btDrag'>x</span><ul><li id='btPrev'><img src='http://knowlet.github.io/8Comic-Viewer/files/img/pv.png' alt='上一卷（話）' /></li><li id='btMenu'><img src='http://knowlet.github.io/8Comic-Viewer/files/img/mu.png' alt='全集列表' /></li><li id='btNext'><img src='http://knowlet.github.io/8Comic-Viewer/files/img/nv.png' alr='下一卷（話）' /></li><li id='Scroll'><img src='http://knowlet.github.io/8Comic-Viewer/files/img/sc.png' alr='自動捲頁' /></li></ul></nav>";
     a = document.createElement("div");
     a.setAttribute("id", "Menu");
+    a.style.opacity = 0;
     a.innerHTML = "跳到第 <input onchange='j(this.value)'> 頁　　<button>Go</button><br><br><a href='http://www.8comic.com/html/" + ti.toString() + ".html'>↪點我回選單</a>";
     nb.appendChild(a);
     parseInt(localStorage.navX) < document.body.clientWidth && parseInt(localStorage.navY) < document.body.clientHeight && parseInt(localStorage.navX) > 0 && parseInt(localStorage.navY) > 0 && (navX = localStorage.navX, navY = localStorage.navY) && (nb.style.left = navX, nb.style.top = navY);
@@ -55,7 +56,8 @@
         1 >= ch ? alert("前面沒有東西喔！") : (localStorage.setItem(ti,pi), pv());
     };
     btMenu.onclick = function() {
-        location.assign("http://www.8comic.com/html/" + ti.toString() + ".html");
+        a.style.opacity = "";
+        Menu.classList.toggle('show');
     };
     btNext.onclick = function() {
         nv();

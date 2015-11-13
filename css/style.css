@@ -65,14 +65,21 @@ nav span {
 }
 #Menu {
 	position: absolute;
+	opacity: 0;
 	top: 47.5px;
 	right: 40px;
-	width: 180px;
+	width: 0px;
+	height: 60px;
 	background: rgb(127, 92, 23);
 	color: white;
 	border-radius: 10px;
 	border: #FFB11B solid 4px;
 	padding: 15px;
+	overflow: hidden;
+	transition:width 1s,opacity 1s;
+	-moz-transition:width 1s,opacity 1s;
+	-webkit-transition:width 1s,opacity 1s;
+	-o-transition:width 1s,opacity 1s;
 }
 #Menu input{
 	width: 40px;
@@ -84,4 +91,11 @@ nav span {
 }
 #Menu a:hover{
 	color: white;
+}
+#Menu.show{
+	opacity: 1;
+	width: 180px;
+}
+.hide{
+	display: none;
 }
